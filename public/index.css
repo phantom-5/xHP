@@ -1,0 +1,13 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  z-index: -1;
+}
+
+.bodyClass {
+background-image: url("assets/landscape/1.jpg");
+height: 100%; 
+background-position: center;
+background-repeat: repeat;
+background-size: cover;
+}
