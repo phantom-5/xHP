@@ -8,11 +8,15 @@ import Swal from 'sweetalert2'
 const Story = (props) => {
 
     const [audio] = useState( typeof Audio !== "undefined" && new Audio("https://xharrypotter.herokuapp.com/stream/audio")); 
+    const [isLoading,setIsLoading]  = useState(true)
     var userHistoryCount = 0
     const cookie = new Cookies()
 
     const cookie_data = cookie.get('hpexp')
     
+    const loading = () => {
+        setIsLoading(false)
+    }
 
     const userHistory = () => {
         userHistoryCount+=1
@@ -51,7 +55,8 @@ const Story = (props) => {
             fadeOutDelay: 500,
             loop: false,
             showCursor: false,
-            onStringTyped: userHistory
+            onStringTyped: userHistory,
+            preStringTyped: loading
         }
 
         var typed = new Typed('#typedItem', options)
@@ -107,6 +112,7 @@ const Story = (props) => {
         <div className="d-flex flex-column bd-highlight justify-content-center storyD flex-wrap w-50 flexD bg-white">
             <div className="p-2">
                 <p className='lead' id='typedItem'></p>
+                <p className='lead'>{isLoading && <span>Loading...</span>}</p>
             </div>
         </div>
         
@@ -115,6 +121,7 @@ const Story = (props) => {
         <div className="d-flex flex-row bd-highlight m-5 justify-content-center storyM bg-white">
             <div className="p-2">
                 <p className='lead' id='typedItem'></p>
+                <p className='lead'>{isLoading && <span>Loading...</span>}</p>
             </div>
         </div>
       </MediaQuery>
