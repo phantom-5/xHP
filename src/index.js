@@ -7,9 +7,9 @@ window.addEventListener('orientationchange', ()=> {
   window.location.reload()
 })
 
-var count = 1
+var count = Math.floor((Math.random() * 9) + 1);
+document.body.style.backgroundImage = "url('assets/landscape/"+count+".jpg')"
 setInterval(()=>{
-  console.log(count)
   document.body.style.backgroundImage = "url('assets/landscape/"+count+".jpg')"
   count+=1
   count%=9
