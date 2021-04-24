@@ -14,7 +14,7 @@ setInterval(()=>{
   count+=1
   count%=9
   count+=1
-},10000)
+},1000*60)
 
 
 ReactDOM.render(
