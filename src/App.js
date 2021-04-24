@@ -113,7 +113,7 @@ function App() {
       />
        {!userInteracted && <div className="divM">
         <select className="form-select form-select-sm sm-3 btnM" aria-label=".form-select-sm" ref={selectRef}>
-          <option selected>Select Book</option>
+          <option value="1">Select Book</option>
           <option value="1">Philosopher's Stone</option>
           <option value="2">Chamber of Secrets</option>
           <option value="3">Prisoner of Azkaban</option>
@@ -123,7 +123,7 @@ function App() {
           <option value="7">Deathly Hallows</option>
         </select>
         <select className="form-select form-select-sm sm-3 btnM" aria-label=".form-select-sm" ref={speedRef}>
-          <option selected>Reading Speed</option>
+          <option value="20">Reading Speed</option>
           <option value="40">Slow</option>
           <option value="20">Medium</option>
           <option value="10">Fast</option>
