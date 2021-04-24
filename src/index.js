@@ -7,12 +7,12 @@ window.addEventListener('orientationchange', ()=> {
   window.location.reload()
 })
 
-var count = Math.floor((Math.random() * 9) + 1);
+var count = Math.floor((Math.random() * 13) + 1);
 document.body.style.backgroundImage = "url('assets/landscape/"+count+".jpg')"
 setInterval(()=>{
   document.body.style.backgroundImage = "url('assets/landscape/"+count+".jpg')"
   count+=1
-  count%=9
+  count%=13
   count+=1
 },1000*60)
 
