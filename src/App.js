@@ -60,7 +60,7 @@ function App() {
 
       {!userInteracted && <div className="divD">
         <select className="form-select form-select-lg mb-3 btnD" aria-label=".form-select-lg" ref={selectRef}>
-          <option selected>Select Book</option>
+          <option value="1">Select Book</option>
           <option value="1">Philosopher's Stone</option>
           <option value="2">Chamber of Secrets</option>
           <option value="3">Prisoner of Azkaban</option>
@@ -71,7 +71,7 @@ function App() {
         </select>
         &nbsp;
         <select className="form-select form-select-lg mb-3 btnD" aria-label=".form-select-lg" ref={speedRef}>
-          <option selected>Reading Speed</option>
+          <option value="20">Reading Speed</option>
           <option value="40">Slow</option>
           <option value="20">Medium</option>
           <option value="10">Fast</option>
