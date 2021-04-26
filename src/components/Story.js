@@ -4,6 +4,7 @@ import MediaQuery from 'react-responsive'
 import Typed from 'typed.js'
 import Cookies from 'universal-cookie'
 import Swal from 'sweetalert2'
+import Loading from './Loading'
 
 console.log = function() {} //disable all console.log
 
@@ -114,7 +115,7 @@ const Story = (props) => {
         <div className="d-flex flex-column bd-highlight justify-content-center storyD flex-wrap w-50 flexD bg-white">
             <div className="p-2">
                 <p className='lead' id='typedItem'></p>
-                <p className='lead'>{isLoading && <span>Loading...</span>}</p>
+                <p className='lead'>{isLoading && <Loading/>}</p>
             </div>
         </div>
         
@@ -123,7 +124,7 @@ const Story = (props) => {
         <div className="d-flex flex-row bd-highlight m-5 justify-content-center storyM bg-white">
             <div className="p-2">
                 <p className='lead' id='typedItem'></p>
-                <p className='lead'>{isLoading && <span>Loading...</span>}</p>
+                <p className='lead'>{isLoading && <Loading/>}</p>
             </div>
         </div>
       </MediaQuery>

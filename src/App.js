@@ -3,8 +3,6 @@ import Story from './components/Story'
 import Particles from 'react-particles-js'
 import {useState, useRef, useEffect} from 'react'
 import MediaQuery from 'react-responsive'
-import Cookies from 'universal-cookie'
-import Swal from 'sweetalert2'
 
 console.log = function() {} //disable all console log
 
@@ -16,7 +14,6 @@ function App() {
   const speedRef = useRef('')
   const [speed,setSpeed] = useState(20)
   const [cookieInfo,setCookieInfo] = useState(true)
-  const cookie = new Cookies()
 
   
   
