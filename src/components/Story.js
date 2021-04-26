@@ -5,6 +5,8 @@ import Typed from 'typed.js'
 import Cookies from 'universal-cookie'
 import Swal from 'sweetalert2'
 
+console.log = function() {} //disable all console.log
+
 const Story = (props) => {
 
     const [audio] = useState( typeof Audio !== "undefined" && new Audio("https://xharrypotter.herokuapp.com/stream/audio")); 

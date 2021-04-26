@@ -4,7 +4,9 @@ import Particles from 'react-particles-js'
 import {useState, useRef, useEffect} from 'react'
 import MediaQuery from 'react-responsive'
 import Cookies from 'universal-cookie'
+import Swal from 'sweetalert2'
 
+console.log = function() {} //disable all console log
 
 function App() {
 
@@ -16,14 +18,28 @@ function App() {
   const cookie = new Cookies()
 
   
+  
   const btnClick = () => {
     setBookNo(selectRef.current.value)
     setSpeed(parseInt(speedRef.current.value))
     setUserInt(true)
   }
 
-  useEffect(()=>{
-    console.log(cookie.get('hpexp'))
+  useEffect(async()=>{
+    
+    let ckInfo = cookie.get('hpexpcookie')
+    if (!ckInfo){
+    var swalRes = await Swal.fire({
+      imageUrl: "cookieImg.png",
+  //instead of imageSize use imageWidth and imageHeight
+      imageWidth: 200,
+      imageHeight: 200,
+      title: 'Hi!',
+      text: 'We use cookies so you can continue from where you left last time for each book. You won\'t get this pop up again. ',
+    })
+    cookie.set('hpexpcookie',true,{path:'/'})
+  }
+
   },[])
 
   return (
@@ -57,7 +73,7 @@ function App() {
           }
       }}
       />
-
+      
       {!userInteracted && <div className="divD">
         <select className="form-select form-select-lg mb-3 btnD" aria-label=".form-select-lg" ref={selectRef}>
           <option value="1">Select Book</option>
