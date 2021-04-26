@@ -67,3 +67,8 @@ opacity: 0.95;
 .cookieInfo {
   text-align: center;
 }
+
+.cookieImg {
+  width: 1%;
+  height: 1%;
+}

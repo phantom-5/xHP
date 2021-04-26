@@ -15,6 +15,7 @@ function App() {
   const selectRef = useRef('')
   const speedRef = useRef('')
   const [speed,setSpeed] = useState(20)
+  const [cookieInfo,setCookieInfo] = useState(true)
   const cookie = new Cookies()
 
   
@@ -25,22 +26,10 @@ function App() {
     setUserInt(true)
   }
 
-  useEffect(async()=>{
-    
-    let ckInfo = cookie.get('hpexpcookie')
-    if (!ckInfo){
-    var swalRes = await Swal.fire({
-      imageUrl: "cookieImg.png",
-  //instead of imageSize use imageWidth and imageHeight
-      imageWidth: 200,
-      imageHeight: 200,
-      title: 'Hi!',
-      text: 'We use cookies so you can continue from where you left last time for each book. You won\'t get this pop up again. ',
-    })
-    cookie.set('hpexpcookie',true,{path:'/'})
+  useEffect(()=>{
+    setTimeout(()=>{setCookieInfo(false)},5000)
   }
-
-  },[])
+  ,[])
 
   return (
     <div className="App">
@@ -73,7 +62,6 @@ function App() {
           }
       }}
       />
-      
       {!userInteracted && <div className="divD">
         <select className="form-select form-select-lg mb-3 btnD" aria-label=".form-select-lg" ref={selectRef}>
           <option value="1">Select Book</option>
@@ -94,6 +82,7 @@ function App() {
         </select>
           <br/>
         <button  className="btn btn-success btnD" onClick={btnClick}>Experience</button>
+        {cookieInfo && <div className="cookieInfo text-white"><hr/>We use cookies for each book so you can continue from where you left.</div>}
         </div>
       }
       {userInteracted &&  <Story bookNo={bookNo} rSpeed={speed}/> }
@@ -146,6 +135,7 @@ function App() {
         </select>
         <br/>
         <button  className="btn btn-success btnM" onClick={btnClick}>Experience</button>
+        {cookieInfo && <div className="cookieInfo text-white"><hr/>We use cookies so you can continue from where you left.</div>}
         </div>
       }
       {userInteracted &&  <Story bookNo={bookNo} rSpeed={speed}/> }
