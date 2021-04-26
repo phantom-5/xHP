@@ -24,7 +24,7 @@ function App() {
   }
 
   useEffect(()=>{
-    setTimeout(()=>{setCookieInfo(false)},5000)
+    setTimeout(()=>{setCookieInfo(false)},10000)
   }
   ,[])
 
