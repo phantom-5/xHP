@@ -63,6 +63,7 @@ const Story = (props) => {
         }
 
         var typed = new Typed('#typedItem', options)
+        audio.loop = true
         audio.play()
 
         var storySection = document.querySelector('.d-flex')
