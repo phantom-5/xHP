@@ -2,10 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Swal from 'sweetalert2'
 
 window.addEventListener('orientationchange', ()=> {
   window.location.reload()
 })
+
+window.onoffline = async() => {
+  var swal_notif = await Swal.fire({
+    icon: 'error',
+    title: 'No Internet!',
+    text: 'Please check your internet connection.',
+    showConfirmButton: true,
+    confirmButtonText: 'Okay',
+    confirmButtonColor: 'red'
+  })
+  if(swal_notif.isConfirmed || swal_notif.isDismissed){
+  window.location.reload()
+  }
+}
 
 var count = Math.floor((Math.random() * 13) + 1);
 document.body.style.backgroundImage = "url('assets/landscape/"+count+".jpg')"
